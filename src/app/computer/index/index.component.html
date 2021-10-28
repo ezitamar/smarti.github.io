@@ -1,0 +1,39 @@
+<section>
+
+    <div class="d-flex justify-content-between">
+        <h4>List Computers</h4>
+        <a routerLink="/computer/create" class="btn btn-success">Create New Computer</a>
+    </div>
+
+    <br>
+
+    <div>
+        search: <input type="text" placeholder="search computer" ng-model="searchText" />
+    </div>
+
+    <br>
+    <table class="table ">
+        <tr>
+            <th>ID</th>
+            <th>Manufacture</th>
+            <th>Model</th>
+            <th>Size</th>
+            <th>Processor</th>
+            <th>Memory</th>
+            <th width="220px">Action</th>
+        </tr>
+        <tr *ngFor="let computer of computers |  searchFilter: searchText">
+            <td>{{ computer.id }}</td>
+            <td>{{ computer.Manufacturer }}</td>
+            <td>{{ computer.model }}</td>
+            <td>{{ computer.size }}</td>
+            <td>{{ computer.Processor }}</td>
+            <td>{{ computer.Memory }}</td>
+            
+            <td>
+                <a href="#" [routerLink]="['/computer/', 'edit', computer.id  ]" class="btn btn-primary">Edit</a>
+                <button type="button" (click)="deleteComputer(computer.id)" class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+</section>

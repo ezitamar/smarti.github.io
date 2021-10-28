@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "appcomputer"
+    }
+  },
+  "defaultProject": "appcomputer",
+  "cli": {
+    "analytics": "ef65d051-66fc-484b-abda-20198158fc94"
+  }
 }

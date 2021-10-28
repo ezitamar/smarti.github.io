@@ -1,0 +1,84 @@
+<div>
+
+    <div class="d-flex justify-content-between">
+        <h4>Create New Computer</h4>
+        <a href="#" routerLink="/computer/index" class="btn btn-primaryt">Back</a>
+    </div>
+
+    <hr/>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="Manufacturer">Manufacture:</label>
+                <input
+                        formControlName="Manufacturer"
+                        id="Manufacturer"
+                        type="text"
+                        class="form-control">
+                <div *ngIf="f.Manufacture?.touched && f.Manufacture.invalid" class="alert alert-danger">
+                    <div *ngIf="f.name.errors.required">*Manufacture is required.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="model">Model:</label>
+                <input
+                        formControlName="model"
+                        id="model"
+                        type="text"
+                        class="form-control">
+                <div *ngIf="f.model?.touched && f.model.invalid" class="alert alert-danger">
+                    <div *ngIf="f.model.errors.required">*model is required.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="size">Size:</label>
+                <input
+                        formControlName="size"
+                        id="size"
+                        type="text"
+                        class="form-control">
+                <div *ngIf="f.size?.touched && f.size.invalid" class="alert alert-danger">
+                 <div *ngIf="f.size.errors.pattern">*The size must only contain numbers.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="Processor">Processor:</label>
+                <input
+                        formControlName="Processor"
+                        id="Processor"
+                        type="text"
+                        class="form-control">
+                <div *ngIf="f.Processor?.touched && f.Processor.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Processor.errors.required">*Processor is required.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6 ">
+                <label for="Memory">Memory:</label>
+                <input
+                        formControlName="Memory"
+                        id="Memory"
+                        type="text"
+                        class="form-control">
+                <div *ngIf="f.Memory?.touched && f.Memory.invalid" class="alert alert-danger">
+                    <div *ngIf="f.Memory.errors.pattern">*The Memory must only contain numbers.</div>
+                </div>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
